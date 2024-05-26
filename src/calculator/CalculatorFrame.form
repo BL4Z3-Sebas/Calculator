@@ -203,6 +203,9 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="number1TextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="number2TextField">
       <Properties>

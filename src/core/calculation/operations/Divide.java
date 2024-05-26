@@ -12,6 +12,9 @@ import core.calculation.Calculation;
  */
 public class Divide implements Calculation{
 
+    public Divide() {
+    }
+
     @Override
     public double operationResult(double number1, double number2) {
       return number1/number2;

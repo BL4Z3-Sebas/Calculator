@@ -12,10 +12,12 @@ import core.calculation.Calculation;
  */
 public class Add implements Calculation{
 
-    
-    
+    public Add() {
+    }
+
+  
     @Override
-    public double operationResult(double number1, double number2) {
+    public  double operationResult(double number1, double number2) {
        
         return number1+number2;
        

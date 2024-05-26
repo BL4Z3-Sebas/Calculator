@@ -10,14 +10,14 @@ import core.calculation.Calculation;
  *
  * @author cotes
  */
-public class Subtract implements Calculation{
+public class Power implements Calculation{
 
-    public Subtract() {
+    public Power() {
     }
 
     @Override
     public double operationResult(double number1, double number2) {
-        return number1-number2;
+      return Math.pow(number1, number2);
     }
     
 }

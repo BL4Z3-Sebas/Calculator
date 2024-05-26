@@ -10,5 +10,11 @@ package core.calculation;
  */
 public interface Calculation {
     
+    /**
+     *
+     * @param number1
+     * @param number2
+     * @return
+     */
     public abstract double operationResult(double number1,double number2);
 }
