@@ -14,6 +14,7 @@ import core.calculation.operations.Add;
 import core.calculation.operations.Divide;
 import core.calculation.operations.Multiply;
 import core.calculation.operations.Power;
+import core.controller.history.ControllerHistory;
 import core.controller.operations.ControllerOperations;
 import core.controller.utils.Responce;
 
@@ -242,7 +243,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else {
 JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             double result = add.operationResult(Double.parseDouble(number1), Double.parseDouble(number2));
-            resultTextField.setText("" + result);
+            resultTextField.setText("" + ControllerOperations.controllerDecimals(result));
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -261,7 +262,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
         } else {
 JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             double result = subtract.operationResult(Double.parseDouble(number1), Double.parseDouble(number2));
-            resultTextField.setText("" + result);
+            resultTextField.setText("" + ControllerOperations.controllerDecimals(result));
         }
     }//GEN-LAST:event_subtractButtonActionPerformed
 
@@ -279,7 +280,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
         } else {
 JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             double result = multiply.operationResult(Double.parseDouble(number1), Double.parseDouble(number2));
-            resultTextField.setText("" + result);
+            resultTextField.setText("" + ControllerOperations.controllerDecimals(result));
         }
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
@@ -297,8 +298,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
         } else {
 JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             double result = divide.operationResult(Double.parseDouble(number1), Double.parseDouble(number2));
-            
-            resultTextField.setText("" + ControllerOperations.controllerDecimals(result));
+             resultTextField.setText("" + ControllerOperations.controllerDecimals(result));
         }
     }//GEN-LAST:event_divideButtonActionPerformed
 
@@ -316,7 +316,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
         } else {
  JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             double result = pow.operationResult(Double.parseDouble(number1), Double.parseDouble(number2));
-            resultTextField.setText("" + result);
+            resultTextField.setText("" + ControllerOperations.controllerDecimals(result));
         }
     }//GEN-LAST:event_potencyButtonActionPerformed
 
@@ -328,13 +328,21 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void historyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyButtonActionPerformed
-        // TODO add your handling code here:
-        ArrayList<Operation> operationHistory = this.history.getOperations();
-        Collections.reverse(this.history.getOperations());
 
-        DefaultListModel model = new DefaultListModel();
-        model.addAll(operationHistory);
-        showList.setModel(model);
+        ArrayList<Operation> operationHistory = this.history.getOperations();
+      
+        Responce responce=ControllerHistory.UpdateHistory(operationHistory);
+        
+        if (responce.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, responce.getMessage(), "Error " + responce.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (responce.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, responce.getMessage(), "Error " + responce.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {
+JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
+             showList.setModel(ControllerHistory.showTheList(this.history.getOperations()));
+        }
+       
+       
     }//GEN-LAST:event_historyButtonActionPerformed
 
     private void number2TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number2TextFieldActionPerformed

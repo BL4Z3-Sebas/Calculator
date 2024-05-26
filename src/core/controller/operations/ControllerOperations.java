@@ -61,7 +61,7 @@ public class ControllerOperations {
             if (operator.equals("")) {
                 return new Responce("The operator must be not empty", Status.BAD_REQUEST);
             }
-            history.addOperation(new Operation(num1, num2, operator, add.operationResult(num1, num2)));
+            history.addOperation(new Operation(num1, num2, operator, controllerDecimals(add.operationResult(num1, num2))));
 
             return new Responce("Operation is successfully ", Status.OK);
         } catch (Exception er) {
@@ -113,7 +113,7 @@ public class ControllerOperations {
                 return new Responce("The operator must be not empty", Status.BAD_REQUEST);
             }
 
-            history.addOperation(new Operation(num1, num2, operator, sub.operationResult(num1, num2)));
+            history.addOperation(new Operation(num1, num2, operator, controllerDecimals(sub.operationResult(num1, num2))));
 
             return new Responce("Operation is successfully ", Status.OK);
         } catch (Exception er) {
@@ -165,7 +165,7 @@ public class ControllerOperations {
                 return new Responce("The operator must be not empty", Status.BAD_REQUEST);
             }
             
-            history.addOperation(new Operation(num1, num2, operator, multi.operationResult(num1, num2)));
+            history.addOperation(new Operation(num1, num2, operator, controllerDecimals(multi.operationResult(num1, num2))));
 
             return new Responce("Operation is successfully ", Status.OK);
         } catch (Exception er) {
@@ -275,7 +275,7 @@ public class ControllerOperations {
             if (operator.equals("")) {
                 return new Responce("The operator must be not empty", Status.BAD_REQUEST);
             }
-            history.addOperation(new Operation(num1, num2, operator, pow.operationResult(num1, num2)));
+            history.addOperation(new Operation(num1, num2, operator, controllerDecimals(pow.operationResult(num1, num2))));
 
             return new Responce("Operation is successfully ", Status.OK);
         } catch (Exception er) {
@@ -287,12 +287,15 @@ public class ControllerOperations {
     public static double controllerDecimals(double result) {
         String ShowString = "";
         String FinalResult = "" + result;
+      
         int desimals = FinalResult.indexOf(".");
+        System.out.println(desimals);
         if (FinalResult.substring(desimals + 1).length() > 3) {
             ShowString = FinalResult.substring(0, desimals) + FinalResult.substring(desimals, 5);
         } else {
 
             ShowString = FinalResult;
+            
         }
 
         return Double.parseDouble(ShowString);
