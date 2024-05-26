@@ -2,22 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package core.calculation.operations;
+package core.model.operations;
 
-import core.calculation.Calculation;
+import core.model.calculation.Calculation;
 
 /**
  *
  * @author cotes
  */
-public class Subtract implements Calculation{
+//La clase  cumple el principo de Single Responsibilit
+public class Divide implements Calculation{
 
-    public Subtract() {
+    public Divide() {
     }
 
     @Override
     public double operationResult(double number1, double number2) {
-        return number1-number2;
+      return number1/number2;
     }
     
 }

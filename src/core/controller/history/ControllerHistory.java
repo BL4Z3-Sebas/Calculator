@@ -4,7 +4,7 @@
  */
 package core.controller.history;
 
-import calculator.Operation;
+import core.model.Operation;
 import core.controller.utils.Responce;
 import core.controller.utils.Status;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import javax.swing.DefaultListModel;
  * @author cotes
  */
 public class ControllerHistory {
-
+//Controllador para verificar si la lista de History esta vacia
     public static Responce UpdateHistory(ArrayList<Operation> operation) {
         try {
             if (operation.isEmpty()) {
@@ -30,7 +30,7 @@ public class ControllerHistory {
         }
 
     }
-
+//Controlador para mostrar la el History en el frame
     public static DefaultListModel showTheList(ArrayList<Operation> operation) {
         Collections.reverse(operation);
         DefaultListModel ListModel = new DefaultListModel();

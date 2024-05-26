@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/cotes/OneDrive/Escritorio/Calculator/src/core/controller/history/ControllerHistory.java</file>
+            <file>file:/C:/Users/cotes/OneDrive/Escritorio/Calculator/src/core/controller/operations/ControllerOperations.java</file>
+            <file>file:/C:/Users/cotes/OneDrive/Escritorio/Calculator/src/calculator/History.java</file>
+            <file>file:/C:/Users/cotes/OneDrive/Escritorio/Calculator/src/core/calculation/operations/Add.java</file>
+            <file>file:/C:/Users/cotes/OneDrive/Escritorio/Calculator/src/core/calculation/Calculation.java</file>
+            <file>file:/C:/Users/cotes/OneDrive/Escritorio/Calculator/src/calculator/CalculatorFrame.java</file>
+        </group>
     </open-files>
 </project-private>

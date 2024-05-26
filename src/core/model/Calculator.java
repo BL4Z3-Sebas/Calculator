@@ -2,12 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package calculator;
+package core.model;
 
 /**
  *
  * @author edangulo
  */
+
+//Esta clase no cumple conm los principios de SOLID, asi que se sustituye con la
+//interfas Calculation y todas las clases que la implementan
 public class Calculator {
     
     public double add(double a, double b) {

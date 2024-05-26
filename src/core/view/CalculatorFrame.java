@@ -2,21 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package calculator;
+package core.view;
 
-import core.calculation.Calculation;
-import core.calculation.operations.Subtract;
+import core.model.calculation.Calculation;
+import core.model.operations.Subtract;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import core.calculation.operations.Add;
-import core.calculation.operations.Divide;
-import core.calculation.operations.Multiply;
-import core.calculation.operations.Power;
+import core.model.operations.Add;
+import core.model.operations.Divide;
+import core.model.operations.Multiply;
+import core.model.operations.Power;
 import core.controller.history.ControllerHistory;
 import core.controller.operations.ControllerOperations;
 import core.controller.utils.Responce;
+import core.model.History;
+import core.model.Operation;
 
 /**
  *
@@ -249,7 +251,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
 
-        Subtract subtract = new Subtract();
+       Calculation subtract = new Subtract();
         String number1 = number1TextField.getText();
         String number2 = number2TextField.getText();
 
@@ -267,7 +269,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
     }//GEN-LAST:event_subtractButtonActionPerformed
 
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
-        Multiply multiply = new Multiply();
+        Calculation multiply = new Multiply();
         String number1 = number1TextField.getText();
         String number2 = number2TextField.getText();
 
@@ -285,7 +287,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
-        Divide divide = new Divide();
+        Calculation divide = new Divide();
         String number1 = number1TextField.getText();
         String number2 = number2TextField.getText();
 
@@ -303,7 +305,7 @@ JOptionPane.showMessageDialog(null, responce.getMessage(), "Response Message", J
     }//GEN-LAST:event_divideButtonActionPerformed
 
     private void potencyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potencyButtonActionPerformed
-        Power pow=new Power();
+        Calculation pow=new Power();
         String number1 = number1TextField.getText();
         String number2 = number2TextField.getText();
 

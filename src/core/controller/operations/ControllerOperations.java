@@ -4,13 +4,13 @@
  */
 package core.controller.operations;
 
-import calculator.History;
-import calculator.Operation;
-import core.calculation.operations.Add;
-import core.calculation.operations.Divide;
-import core.calculation.operations.Multiply;
-import core.calculation.operations.Power;
-import core.calculation.operations.Subtract;
+import core.model.History;
+import core.model.Operation;
+import core.model.operations.Add;
+import core.model.operations.Divide;
+import core.model.operations.Multiply;
+import core.model.operations.Power;
+import core.model.operations.Subtract;
 import core.controller.utils.Responce;
 import core.controller.utils.Status;
 
@@ -239,6 +239,7 @@ public class ControllerOperations {
             try {
                 //verificacion del primer numero
                 int position1 = number1.indexOf(".");
+                System.out.println(position1);
                 String compare1 = number1.substring(position1 + 1);
                 if (compare1.length() > 3&&position1!=-1) {
 
@@ -285,11 +286,13 @@ public class ControllerOperations {
     }
 
     public static double controllerDecimals(double result) {
+        //controlador para validar todos los decimales
+        
         String ShowString = "";
         String FinalResult = "" + result;
       
         int desimals = FinalResult.indexOf(".");
-        System.out.println(desimals);
+        
         if (FinalResult.substring(desimals + 1).length() > 3) {
             ShowString = FinalResult.substring(0, desimals) + FinalResult.substring(desimals, 5);
         } else {
